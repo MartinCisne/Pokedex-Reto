@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "PokedexReto"
+    }
+  },
+  "defaultProject": "PokedexReto",
+  "cli": {
+    "analytics": "b9369201-fd0d-4122-a32e-7b88b4838ff5"
+  }
 }
