@@ -12,8 +12,21 @@ import { PokemonList } from '../models/allPokemon.model';
 
     pokemonList: PokemonList;
 
-    getPokemon(pokemonId){
-        return this.apiService.getPokemon(pokemonId)
+    getPokemonById(pokemonId){
+        return this.apiService.getPokemonById(pokemonId)
+            .pipe(
+                map( data => {
+                    if (data) {
+                        return data
+                    } else {
+                        throw data
+                    }
+                })
+            );
+      }
+
+    getPokemonByUrl(pokemonUrl){
+        return this.apiService.getPokemonByUrl(pokemonUrl)
             .pipe(
                 map( data => {
                     if (data) {

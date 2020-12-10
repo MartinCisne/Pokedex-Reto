@@ -1,0 +1,48 @@
+<div *ngIf="showData ==  true">
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h4>{{pokemonName | titlecase}}</h4>
+                    <img src="{{pokemonFrontSprite}}" class="poke-sprite" alt="">
+                    <img src="{{pokemonBackSprite}}" class="poke-sprite" alt="">
+                </div>    
+                <div class="card">
+                    <h4>Measurements</h4>
+                    <span>Height: {{pokemonHeight}} m</span>
+                    <span>Weight: {{pokemonWeight}} kg</span>
+                </div>  
+            </div>
+            <div class="column">
+                <div class="card">
+                    <h4>Type(s)</h4>
+                    <p class="{{pokemonType1}}">{{pokemonType1 | titlecase}}</p>
+                    <p class="{{pokemonType2}}">{{pokemonType2 | titlecase}}</p>
+                </div>
+                <div class="card">
+                    <table>
+                        <th>Abilities</th>
+                        <tr *ngFor="let stat of abilities">
+                            <td>{{stat.ability.name | titlecase}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="column">
+                <div class="chart-card">
+                    <label>Stats</label>
+    
+                    <ngx-charts-bar-vertical
+                    [view]="view"
+                    [scheme]="colorScheme"
+                    [results]="chart"
+                    [gradient]="gradient"
+                    [xAxis]="showXAxis"
+                    [yAxis]="showYAxis"
+                    [showYAxisLabel]="showYAxisLabel"
+                    [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel">
+                    </ngx-charts-bar-vertical>
+                </div>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="home-back-color">
+    <div *ngIf="pokemonList">
+        <label for="pokemonList">Select a Pokemon</label>
+        <ng-select [(ngModel)]="selectedPokemonUrl" id="pokemonList">
+            <ng-option 
+                *ngFor="let pokemon of pokemonList.results; let i = index" 
+                [value]="pokemon.url">
+                {{i + 1}} - {{pokemon.name | titlecase}}
+            </ng-option>
+        </ng-select>
+    </div>
+    
+    <div *ngIf="pokemonSelected">
+        <app-pokedex-info [selectedPokemonUrl] = "selectedPokemonUrl"></app-pokedex-info>
+    </div>
+</div>
+
+
+
+

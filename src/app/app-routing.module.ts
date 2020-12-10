@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { PokedexComponent } from './components/pokedex/pokedex.component';
+import { PokedexSearchComponent } from './components/pokedex_search/pokedex_search.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'pokedex', component: PokedexComponent},
+  {path: 'pokedex', component: PokedexSearchComponent},
 ];
 
 @NgModule({

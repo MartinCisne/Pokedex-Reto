@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from "src/environments/environment";
 import { HttpClient } from '@angular/common/http';
-import { Welcome } from '../models/pokemon_data.model';
+import { PokemonData} from '../models/pokemon_data.model';
 import { PokemonList } from '../models/allPokemon.model';
 
 const API_ENDPOINT = environment.apiEndpoint;
@@ -15,11 +15,19 @@ const API_ENDPOINT = environment.apiEndpoint;
 
     constructor(private http: HttpClient) {}
 
-    public getPokemon(pokemonId: number){
-        return this.http.get<Welcome>(`${this.url}${pokemonId}`);
+    public getPokemonById(pokemonId: number){
+        console.log(`${this.url}pokemon/${pokemonId}`);
+        return this.http.get<PokemonData>(`${this.url}pokemon/${pokemonId}`);
       }
 
     public getAllRegionPokemon(){
+        console.log(`${this.url}pokemon?limit=721`);
         return this.http.get<PokemonList>(`${this.url}pokemon?limit=721`)
       }
+
+    public getPokemonByUrl(pokemonUrl: string){
+        console.log(pokemonUrl);
+        return this.http.get<PokemonData>(pokemonUrl);
+      }
+
   }
