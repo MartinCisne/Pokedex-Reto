@@ -14,6 +14,6 @@ export class HomeComponent implements OnInit {
   }
 
   toPokedex(){
-    this.router.navigate(['/pokedex']);
+    this.router.navigate(['/pokedex-main']);
   }
 }

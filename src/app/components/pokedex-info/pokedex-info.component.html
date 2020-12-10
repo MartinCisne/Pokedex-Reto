@@ -1,24 +1,29 @@
 <div *ngIf="showData ==  true">
         <div class="row">
             <div class="column">
-                <div class="card">
+                <div class="card slide-right">
                     <h4>{{pokemonName | titlecase}}</h4>
-                    <img src="{{pokemonFrontSprite}}" class="poke-sprite" alt="">
-                    <img src="{{pokemonBackSprite}}" class="poke-sprite" alt="">
+                    <img src="{{pokemonFrontSprite}}" 
+                        class="poke-sprite" alt="" 
+                        onError="this.src='assets/main-images/pokeball.png'">
+                        
+                    <img src="{{pokemonBackSprite}}" 
+                        class="poke-sprite" alt="" 
+                        onError="this.src='assets/main-images/pokeball.png'">
                 </div>    
-                <div class="card">
+                <div class="card slide-right">
                     <h4>Measurements</h4>
                     <span>Height: {{pokemonHeight}} m</span>
                     <span>Weight: {{pokemonWeight}} kg</span>
                 </div>  
             </div>
             <div class="column">
-                <div class="card">
+                <div class="card slide-right">
                     <h4>Type(s)</h4>
                     <p class="{{pokemonType1}}">{{pokemonType1 | titlecase}}</p>
                     <p class="{{pokemonType2}}">{{pokemonType2 | titlecase}}</p>
                 </div>
-                <div class="card">
+                <div class="card slide-right">
                     <table>
                         <th>Abilities</th>
                         <tr *ngFor="let stat of abilities">
@@ -28,7 +33,7 @@
                 </div>
             </div>
             <div class="column">
-                <div class="chart-card">
+                <div class="chart-card slide-right">
                     <label>Stats</label>
     
                     <ngx-charts-bar-vertical
@@ -40,7 +45,8 @@
                     [yAxis]="showYAxis"
                     [showYAxisLabel]="showYAxisLabel"
                     [xAxisLabel]="xAxisLabel"
-                    [yAxisLabel]="yAxisLabel">
+                    [yAxisLabel]="yAxisLabel"
+                    class="chart-font">
                     </ngx-charts-bar-vertical>
                 </div>
             </div>

@@ -11,13 +11,15 @@ import { PokedexSearchComponent } from './components/pokedex_search/pokedex_sear
 import { PokedexInfoComponent } from './components/pokedex-info/pokedex-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PokedexMainComponent } from './modules/pokedex-main/pokedex-main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PokedexSearchComponent,
-    PokedexInfoComponent
+    PokedexInfoComponent,
+    PokedexMainComponent
   ],
   imports: [
     CommonModule,

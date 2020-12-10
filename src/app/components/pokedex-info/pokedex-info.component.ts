@@ -32,6 +32,7 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
   colorScheme = {
     domain: ['#90caf9']
   };
+  
 
   //POKEMON DATA
   pokemonData: PokemonData;

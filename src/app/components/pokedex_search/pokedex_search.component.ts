@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonURL } from 'src/app/models/allPokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 @Component({
-  selector: 'app-pokedex',
+  selector: 'app-pokedex-search',
   templateUrl: './pokedex_search.component.html',
   styleUrls: ['./pokedex_search.component.scss']
 })
