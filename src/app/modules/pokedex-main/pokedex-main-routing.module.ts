@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PokedexMainComponent } from './pokedex-main.component';
+import { PokedexLayoutComponent } from './components/pokedex-layout/pokedex-layout.component';
+import { PokedexSearchComponent } from './components/pokedex-search/pokedex_search.component';
 
 
 const routes: Routes = [
-  { path: '', component: PokedexMainComponent }
+  { path: '', component: PokedexLayoutComponent,
+    children:[
+      { path: 'pokedex-search', component: PokedexSearchComponent }
+    ]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(
-    routes
-    )],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class PokedexMainRoutingModule { }

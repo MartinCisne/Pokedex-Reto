@@ -13,16 +13,4 @@ export class PokedexMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-   openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-  }
-  
-   closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-
-  toPokedexSearch(){
-    this.router.navigate(['/pokedex-search']);
-  }
-
 }
