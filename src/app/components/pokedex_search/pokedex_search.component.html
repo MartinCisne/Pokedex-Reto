@@ -1,7 +1,7 @@
-<div class="home-back-color">
+<div>
     <div *ngIf="pokemonList">
-        <label for="pokemonList">Select a Pokemon</label>
-        <ng-select [(ngModel)]="selectedPokemonUrl" id="pokemonList">
+        <p for="pokemonList">Select a Pokemon</p>
+        <ng-select class="ng-select-sizes" [(ngModel)]="selectedPokemonUrl" id="pokemonList">
             <ng-option 
                 *ngFor="let pokemon of pokemonList.results; let i = index" 
                 [value]="pokemon.url">
