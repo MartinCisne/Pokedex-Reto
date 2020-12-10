@@ -30,7 +30,7 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
   yAxisLabel = 'Points';
  
   colorScheme = {
-    domain: ['#216CD8']
+    domain: ['#90caf9']
   };
 
   //POKEMON DATA
