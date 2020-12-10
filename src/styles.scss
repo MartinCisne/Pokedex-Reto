@@ -1,5 +1,6 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+//ROWS AND COLUMNS
 .column {
   float: left;
   width: 25%;
@@ -21,6 +22,8 @@
     margin-bottom: 20px;
   }
 }
+
+//SLIDE RIGHT ANIMATION
 
 .slide-right {
     -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -46,4 +49,17 @@
         -webkit-transform: translateX(100px);
                 transform: translateX(100px);
       }
+    }
+
+//CARD
+    .card {
+      box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      margin-top: 20px;
+      margin-left: 20px;
+      text-align: center;
+      background-color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+      border-radius: 10px;
     }

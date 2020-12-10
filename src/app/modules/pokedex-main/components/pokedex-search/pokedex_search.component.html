@@ -1,6 +1,11 @@
 <div>
     <div *ngIf="pokemonList">
-        <p for="pokemonList" class="slide-right">Select a Pokemon</p>
+        <p for="pokemonList" class="slide-right">
+            <a (click)="toPokedexDashboard()">
+                <fa-icon class="icon-margin" [icon]="faArrowLeft">
+                </fa-icon>
+            </a>
+        Select a Pokemon</p>
         <ng-select class="ng-select-sizes slide-right" [(ngModel)]="selectedPokemonUrl" id="pokemonList">
             <ng-option 
                 *ngFor="let pokemon of pokemonList.results; let i = index" 

@@ -8,15 +8,20 @@ import { PokedexSearchComponent } from './components/pokedex-search/pokedex_sear
 import { PokedexInfoComponent } from './components/pokedex-info/pokedex-info.component';
 import { PokedexMainRoutingModule } from './pokedex-main-routing.module';
 import { SidebarComponent } from 'src/app/components/side-bar/sidebar.component';
+import { PokedexDashboardComponent } from './components/pokedex-dashboard/pokedex-dashboard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PokedexFavoritesComponent } from './components/pokedex-favorites/pokedex-favorites.component';
+
 
 @NgModule({
-  declarations: [PokedexMainComponent,PokedexSearchComponent,PokedexInfoComponent,SidebarComponent],
+  declarations: [PokedexMainComponent,PokedexSearchComponent,PokedexInfoComponent,SidebarComponent, PokedexDashboardComponent, PokedexFavoritesComponent],
   imports: [
     CommonModule,
     FormsModule,
     NgSelectModule,
     NgxChartsModule,
-    PokedexMainRoutingModule
+    PokedexMainRoutingModule,
+    FontAwesomeModule
   ]
 })
 export class PokedexMainModule { }
