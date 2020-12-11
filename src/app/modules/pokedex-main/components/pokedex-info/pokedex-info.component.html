@@ -7,13 +7,13 @@
             </a>
         Back</p>
     </div>
-        <div class="row">
+        <div class="grid-container">
               <div *ngIf="showAlert == true" class="alert slide-right">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                 <strong>¡Success!</strong><br>
                 Successfully added
               </div>
-            <div class="column">
+            <div class="grid-item1">
                 <div class="card slide-right">
                     <h4>{{pokemonName | titlecase}}</h4>
                     <img src="{{pokemonFrontSprite}}" 
@@ -26,19 +26,16 @@
                     <button *ngIf="url == undefined" class="{{pokemonType1}}" (click)="addPokemonFavorite()">
                         <fa-icon class="icon-margin" [icon]="faStar"></fa-icon>
                     Add to Favorite</button>
-                </div>    
-                <div class="card slide-right">
-                    <h4>Measurements</h4>
-                    <span>Height: {{pokemonHeight}} m</span>
-                    <span>Weight: {{pokemonWeight}} kg</span>
-                </div>  
+                </div> 
             </div>
-            <div class="column">
+            <div class="grid-item1">   
                 <div class="card slide-right">
                     <h4>Type(s)</h4>
                     <p class="{{pokemonType1}} p-label">{{pokemonType1 | titlecase}}</p>
                     <p class="{{pokemonType2}} p-label">{{pokemonType2 | titlecase}}</p>
                 </div>
+            </div>
+            <div class="grid-item1"> 
                 <div class="card slide-right">
                     <table class="{{pokemonType1}}">
                         <th>Abilities</th>
@@ -46,9 +43,9 @@
                             <td>{{stat.ability.name | titlecase}}</td>
                         </tr>
                     </table>
-                </div>
+                </div> 
             </div>
-            <div class="column">
+            <div class="grid-item1"> 
                 <div class="chart-card slide-right">
                     <label>Stats</label>
     
@@ -63,6 +60,13 @@
                     [yAxisLabel]="yAxisLabel"
                     class="chart-font">
                     </ngx-charts-bar-vertical>
+                </div>
+            </div>
+            <div class="grid-item1">
+                <div class="card slide-right">
+                    <h4>Measurements</h4>
+                    <span>Height: {{pokemonHeight}} m</span>
+                    <span>Weight: {{pokemonWeight}} kg</span>
                 </div>
             </div>
         </div>

@@ -20,7 +20,7 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
   chart: any[] = [];
   newChart: any[] = [];
 
-  view: any[] = [300, 300];
+  view: any[] = [250, 250];
 
   statsNames = ['hp','attack','defense','special-attack','special-defense','speed'];
 
