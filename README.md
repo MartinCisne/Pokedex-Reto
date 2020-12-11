@@ -7,4 +7,5 @@ Recursos utilizados:
 - Ngx Charts: https://swimlane.gitbook.io/ngx-charts/installing;
 - @fortawesome/angular-fontawesome: https://www.npmjs.com/package/@fortawesome/angular-fontawesome
 - Imagenes libres de copyright https://pixabay.com/
+- Google Firebase
 
