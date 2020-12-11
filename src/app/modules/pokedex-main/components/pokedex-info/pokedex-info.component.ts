@@ -2,6 +2,9 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ChartDataModel } from 'src/app/models/chart_data.model';
 import { PokemonData } from 'src/app/models/pokemon_data.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { faStar, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { PokemonFavoriteModel } from 'src/app/models/favoritePokemon.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokedex-info',
@@ -28,14 +31,10 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
   xAxisLabel = 'Stats';
   showYAxisLabel = true;
   yAxisLabel = 'Points';
- 
-  colorScheme = {
-    domain: ['#90caf9']
-  };
-  
 
   //POKEMON DATA
   pokemonData: PokemonData;
+  pokemonFavorite: PokemonFavoriteModel;
   pokemonName: string;
   pokemonType1: string;
   pokemonType2: string;
@@ -43,26 +42,47 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
   pokemonWeight: number;
   pokemonStat: any;
   abilities: any;
+  url: any;
 
   pokemonFrontSprite: string;
   pokemonBackSprite: string;
 
   //CONTROL FLAGS
   showData: boolean = false;
+  showAlert: boolean = false;
 
-  constructor(private pokemonService: PokemonService) {
+  //FA ICON
+  faStar = faStar;
+  faArrowLeft = faArrowLeft;
+
+  constructor(
+    private pokemonService: PokemonService,
+    private route: ActivatedRoute,
+    private router: Router) {
+    this.route.params.subscribe(params => {
+      this.url = params['url'];
+    });
    }
 
   ngOnInit(): void {
+    if(this.url != undefined)
+    this.getPokemonInfo(this.url);
   }
 
   ngOnChanges(): void{
+    if(this.selectedPokemonUrl != undefined)
+      this.getPokemonInfo(this.selectedPokemonUrl);
+  }
+
+  getPokemonInfo(url){
     this.newChart = [];
     this.pokemonName = '';
     this.pokemonType1 = '';
     this.pokemonType2 = '';
 
-    this.pokemonService.getPokemonByUrl(this.selectedPokemonUrl).subscribe(response => {
+    this.showAlert = false;
+
+    this.pokemonService.getPokemonByUrl(url).subscribe(response => {
 
       this.showData = true;
 
@@ -83,8 +103,6 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
       }
 
       this.abilities = this.pokemonData.abilities;
-    
-      console.log(this.pokemonData);
     })
   }
 
@@ -105,5 +123,24 @@ export class PokedexInfoComponent implements OnInit, OnChanges {
     this.chartData.value = this.pokemonStat;
     this.newChart.push(this.chartData);
     this.chart = [...this.newChart];
+  }
+
+  addPokemonFavorite(){
+    this.pokemonFavorite = new PokemonFavoriteModel();
+    
+    this.pokemonFavorite.name = this.pokemonName;
+    this.pokemonFavorite.url = this.selectedPokemonUrl;
+    this.pokemonFavorite.sprite = this.pokemonFrontSprite;
+
+    this.pokemonService.postPokemonFavorite(this.pokemonFavorite).subscribe( result => {
+      console.log(result);
+      this.showAlert = true;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  toPokedexFavorites(){
+    this.router.navigateByUrl('/pokedex/favorites');
   }
 }

@@ -14,7 +14,14 @@ import { PokedexFavoritesComponent } from './components/pokedex-favorites/pokede
 
 
 @NgModule({
-  declarations: [PokedexMainComponent,PokedexSearchComponent,PokedexInfoComponent,SidebarComponent, PokedexDashboardComponent, PokedexFavoritesComponent],
+  declarations: [
+    PokedexMainComponent,
+    PokedexDashboardComponent, 
+    PokedexSearchComponent,
+    PokedexInfoComponent,
+    PokedexFavoritesComponent,
+    SidebarComponent 
+  ],
   imports: [
     CommonModule,
     FormsModule,

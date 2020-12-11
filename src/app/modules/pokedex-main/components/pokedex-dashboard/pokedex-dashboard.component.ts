@@ -17,4 +17,8 @@ export class PokedexDashboardComponent implements OnInit {
     this.router.navigateByUrl('/pokedex/search');
   }
 
+  toPokedexFavorites(){
+    this.router.navigateByUrl('/pokedex/favorites');
+  }
+
 }

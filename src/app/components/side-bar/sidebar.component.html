@@ -1,5 +1,5 @@
 <div class="topnav">
-    <a style="font-size:20px;cursor:pointer" (click)="openNav()">&#9776;</a>
+    <a style="font-size:15px;cursor:pointer" (click)="openNav()">&#9776;</a>
     <a>NATIONAL POKEDEX</a>
   </div>
   
@@ -7,7 +7,8 @@
       <a>MENU</a>
       <hr class="solid">
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <a (click)="toPokedexDashboard()">Home</a>
       <a (click)="toPokedexSearch()">Search</a>
-      <a href="#">Favorites</a>
+      <a (click)="toPokedexFavorites()">Favorites</a>
     </div>
     

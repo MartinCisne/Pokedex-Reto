@@ -3,6 +3,7 @@ import { environment } from "src/environments/environment";
 import { HttpClient } from '@angular/common/http';
 import { PokemonData} from '../models/pokemon_data.model';
 import { PokemonList } from '../models/allPokemon.model';
+import { PokemonFavoriteModel } from '../models/favoritePokemon.model';
 
 const API_ENDPOINT = environment.apiEndpoint;
 
@@ -30,4 +31,13 @@ const API_ENDPOINT = environment.apiEndpoint;
         return this.http.get<PokemonData>(pokemonUrl);
       }
 
+    public postFavoritePokemon(pokemon: any){
+      console.log("https://pokedex-challenge-default-rtdb.firebaseio.com/favorites.json")
+        return this.http.post<PokemonFavoriteModel>("https://pokedex-challenge-default-rtdb.firebaseio.com/favorites.json",pokemon);
+    }
+
+    public getFavoritesPokemon(){
+      console.log("https://pokedex-challenge-default-rtdb.firebaseio.com/favorites.json")
+        return this.http.get<PokemonFavoriteModel>("https://pokedex-challenge-default-rtdb.firebaseio.com/favorites.json");
+    }
   }

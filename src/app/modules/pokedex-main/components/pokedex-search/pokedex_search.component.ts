@@ -20,7 +20,6 @@ export class PokedexSearchComponent implements OnInit {
 
     this.pokemonService.getAllPokemon().subscribe( response => {
       this.pokemonList = response;
-      console.log(this.pokemonList);
     }, err => {
       console.log(err);
     });
@@ -31,7 +30,6 @@ export class PokedexSearchComponent implements OnInit {
   }
 
   searchPokemon(){
-    console.log(this.selectedPokemonUrl);
     this.pokemonSelected = false;
     this.pokemonSelected = true;
   }

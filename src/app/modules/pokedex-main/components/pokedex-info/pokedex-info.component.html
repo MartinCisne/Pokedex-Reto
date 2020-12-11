@@ -1,5 +1,18 @@
 <div *ngIf="showData ==  true">
+    <div *ngIf="url != undefined">
+        <p class="slide-right p-back">
+            <a (click)="toPokedexFavorites()">
+                <fa-icon class="icon-margin" [icon]="faArrowLeft">
+                </fa-icon>
+            </a>
+        Back</p>
+    </div>
         <div class="row">
+              <div *ngIf="showAlert == true" class="alert slide-right">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <strong>¡Success!</strong><br>
+                Successfully added
+              </div>
             <div class="column">
                 <div class="card slide-right">
                     <h4>{{pokemonName | titlecase}}</h4>
@@ -10,6 +23,9 @@
                     <img src="{{pokemonBackSprite}}" 
                         class="poke-sprite" alt="" 
                         onError="this.src='assets/main-images/pokeball.png'">
+                    <button *ngIf="url == undefined" class="{{pokemonType1}}" (click)="addPokemonFavorite()">
+                        <fa-icon class="icon-margin" [icon]="faStar"></fa-icon>
+                    Add to Favorite</button>
                 </div>    
                 <div class="card slide-right">
                     <h4>Measurements</h4>
@@ -20,11 +36,11 @@
             <div class="column">
                 <div class="card slide-right">
                     <h4>Type(s)</h4>
-                    <p class="{{pokemonType1}}">{{pokemonType1 | titlecase}}</p>
-                    <p class="{{pokemonType2}}">{{pokemonType2 | titlecase}}</p>
+                    <p class="{{pokemonType1}} p-label">{{pokemonType1 | titlecase}}</p>
+                    <p class="{{pokemonType2}} p-label">{{pokemonType2 | titlecase}}</p>
                 </div>
                 <div class="card slide-right">
-                    <table>
+                    <table class="{{pokemonType1}}">
                         <th>Abilities</th>
                         <tr *ngFor="let stat of abilities">
                             <td>{{stat.ability.name | titlecase}}</td>
@@ -38,7 +54,6 @@
     
                     <ngx-charts-bar-vertical
                     [view]="view"
-                    [scheme]="colorScheme"
                     [results]="chart"
                     [gradient]="gradient"
                     [xAxis]="showXAxis"

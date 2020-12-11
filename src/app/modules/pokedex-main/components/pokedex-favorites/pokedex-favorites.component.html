@@ -1,1 +1,17 @@
-<p>pokedex-favorites works!</p>
+<div *ngIf="showCards == true">
+    <p class="slide-right">
+        <a (click)="toPokedexDashboard()">
+            <fa-icon class="icon-margin" [icon]="faArrowLeft">
+            </fa-icon>
+        </a>
+    Favorites</p>
+    <div class="row">
+        <div class="column" *ngFor="let pokemon of favoritesPokemon">
+            <div class="card slide-right" (click)="goToPokemonInfo(pokemon.url)">
+                <p>{{pokemon.name | titlecase}}</p>
+                <img src="{{pokemon.sprite}}">
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -25,4 +25,14 @@ export class SidebarComponent implements OnInit {
     this.closeNav();
     this.router.navigateByUrl('/pokedex/search');
   }
+
+  toPokedexFavorites(){
+    this.closeNav();
+    this.router.navigateByUrl('/pokedex/favorites');
+  }
+
+  toPokedexDashboard(){
+    this.closeNav();
+    this.router.navigateByUrl('/pokedex');
+  }
 }
