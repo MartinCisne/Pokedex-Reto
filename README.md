@@ -6,6 +6,6 @@ Recursos utilizados:
 - @ng-select/ng-select : https://www.npmjs.com/package/@ng-select/ng-select;
 - Ngx Charts: https://swimlane.gitbook.io/ngx-charts/installing;
 - @fortawesome/angular-fontawesome: https://www.npmjs.com/package/@fortawesome/angular-fontawesome
-- CSS Grid
 - Imagenes libres de copyright https://pixabay.com/
+- Google Firebase
 
