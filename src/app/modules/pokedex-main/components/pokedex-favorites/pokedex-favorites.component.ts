@@ -22,7 +22,7 @@ export class PokedexFavoritesComponent implements OnInit {
 
   getFavoritesPokemon(){
     this.pokemonService.getFavoritesPokemon().subscribe(response => {
-      this.favoritesPokemon = response;
+      this.favoritesPokemon = response.filter((v,i,a)=>a.findIndex(t=>(t.name === v.name))===i)
       console.log(this.favoritesPokemon);
       this.showCards = true;
     }, err => {

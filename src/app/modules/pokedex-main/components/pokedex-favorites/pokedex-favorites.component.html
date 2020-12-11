@@ -9,7 +9,7 @@
         <div class="grid-item1" *ngFor="let pokemon of favoritesPokemon">
             <div class="card slide-right" (click)="goToPokemonInfo(pokemon.url)">
                 <label>{{pokemon.name | titlecase}}</label>
-                <img src="{{pokemon.sprite}}">
+                <img src="{{pokemon.sprite}}" onError="this.src='assets/main-images/pokeball.png'">
             </div>
         </div>
     </div>
