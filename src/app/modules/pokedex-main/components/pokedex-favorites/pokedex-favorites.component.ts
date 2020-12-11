@@ -23,7 +23,6 @@ export class PokedexFavoritesComponent implements OnInit {
   getFavoritesPokemon(){
     this.pokemonService.getFavoritesPokemon().subscribe(response => {
       this.favoritesPokemon = response.filter((v,i,a)=>a.findIndex(t=>(t.name === v.name))===i)
-      console.log(this.favoritesPokemon);
       this.showCards = true;
     }, err => {
       console.log(err);
@@ -31,7 +30,6 @@ export class PokedexFavoritesComponent implements OnInit {
   }
 
   goToPokemonInfo(url){
-    console.log(url)
     this.router.navigate(['/pokedex/info', url]);
   }
 

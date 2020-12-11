@@ -8,11 +8,6 @@
         Back</p>
     </div>
         <div class="grid-container">
-              <div *ngIf="showAlert == true" class="alert slide-right">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                <strong>¡Success!</strong><br>
-                Successfully added
-              </div>
             <div class="grid-item1">
                 <div class="card slide-right">
                     <h4>{{pokemonName | titlecase}}</h4>
@@ -25,7 +20,13 @@
                         onError="this.src='assets/main-images/pokeball.png'">
                     <button *ngIf="url == undefined" class="{{pokemonType1}}" (click)="addPokemonFavorite()">
                         <fa-icon class="icon-margin" [icon]="faStar"></fa-icon>
-                    Add to Favorite</button>
+                    Add to Favorite
+                    </button>
+                    <div *ngIf="showAlert == true" class="alert slide-right">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <strong>¡Success!</strong><br>
+                        Successfully added
+                      </div>
                 </div> 
             </div>
             <div class="grid-item1">   
